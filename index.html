@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ann Maria Benny | Data Science & AI Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Six+Caps&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #4f67b8 0%, #8ca6eb 35%, #b8c7f5 70%, #738ce0 100%);
+            background-attachment: fixed;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* Editorial Condensed Title Font */
+        .poster-font {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.04em;
+        }
+
+        /* Hand-drawn Note Font */
+        .hand-font {
+            font-family: 'Gochi Hand', cursive;
+        }
+
+        /* Frosted Periwinkle Glass Cards */
+        .editorial-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(224, 234, 255, 0.58));
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px -15px rgba(30, 41, 99, 0.25);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .interactive-card {
+            cursor: pointer;
+        }
+        .interactive-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 28px 50px -12px rgba(30, 41, 99, 0.38);
+            border-color: #ffffff;
+        }
+
+        /* Halftone Corner Dots */
+        .halftone-corner {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.75) 2px, transparent 2px);
+            background-size: 10px 10px;
+        }
+
+        /* Watermark Background Text */
+        .watermark-text {
+            font-family: 'Six Caps', sans-serif;
+            font-size: clamp(8rem, 22vw, 18rem);
+            line-height: 0.8;
+            color: rgba(255, 255, 255, 0.16);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Modal Animation */
+        .modal-enter {
+            animation: modalFadeIn 0.25s ease-out forwards;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-20">
+
+    <!-- Top Floating Navigation -->
+    <nav class="sticky top-4 z-40 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto editorial-card rounded-full px-6 py-3.5 flex justify-between items-center">
+            <span class="font-black text-indigo-950 tracking-wider text-base md:text-lg">
+                ✦ ANN MARIA BENNY
+            </span>
+            <div class="hidden md:flex space-x-7 text-sm font-semibold text-indigo-950">
+                <a href="#about" class="hover:text-indigo-600 transition">About</a>
+                <a href="#skills" class="hover:text-indigo-600 transition">Skills</a>
+                <a href="#internship" class="hover:text-indigo-600 transition">Internships</a>
+                <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
+                <a href="#certifications" class="hover:text-indigo-600 transition">Research & Certifications</a>
+            </div>
+            <a href="#contact" class="px-5 py-2 text-xs md:text-sm font-bold bg-indigo-900 hover:bg-indigo-800 text-white rounded-full shadow transition">
+                Hire / Connect
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 md:px-8 space-y-10 mt-8">
+
+        <!-- 1. HERO BANNER -->
+        <section class="editorial-card rounded-[2.2rem] p-8 md:p-16 text-center relative flex flex-col items-center justify-center min-h-[420px]">
+            <div class="absolute -bottom-6 -left-6 w-44 h-44 halftone-corner rounded-full"></div>
+            <div class="absolute -top-6 -right-6 w-44 h-44 halftone-corner rounded-full"></div>
+
+            <div class="w-full flex justify-between items-center text-xs md:text-sm font-semibold text-indigo-900/80 mb-4 px-2 z-10">
+                <span>Data Science & AI Portfolio</span>
+                <span class="hand-font text-lg text-indigo-800">Click any card to explore details! ⤵</span>
+                <span>Portfolio 2026</span>
+            </div>
+
+            <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+                <span class="watermark-text tracking-widest">ANN MARIA</span>
+            </div>
+
+            <!-- Giant Prominent Name Display -->
+            <div class="relative z-10 my-4 w-full">
+                <span class="hand-font text-2xl md:text-3xl text-indigo-800 block -mb-2">Hello! Welcome to the portfolio of</span>
+                <h1 class="poster-font font-black text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] text-indigo-950 leading-none drop-shadow-sm tracking-tight uppercase py-2">
+                    Ann Maria Benny
+                </h1>
+                <div class="flex items-center justify-center gap-3 mt-4">
+                    <span class="h-[2px] w-12 md:w-24 bg-indigo-900/60"></span>
+                    <p class="text-xs sm:text-sm md:text-base font-extrabold text-indigo-950 uppercase tracking-widest">
+                        Data Science • Machine Learning • AI
+                    </p>
+                    <span class="h-[2px] w-12 md:w-24 bg-indigo-900/60"></span>
+                </div>
+            </div>
+
+            <div class="relative z-10 mt-6 bg-white/80 border border-indigo-200 rounded-full px-6 py-2.5 flex items-center gap-3 shadow-sm max-w-xl w-full justify-between">
+                <i class="fa-solid fa-magnifying-glass text-indigo-500 text-sm"></i>
+                <span class="text-xs md:text-sm font-semibold text-indigo-950 truncate">
+                    Seeking Internships in Data Science, Data Analysis, ML & AI
+                </span>
+                <i class="fa-solid fa-microphone text-indigo-500 text-sm"></i>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT ME & SKILLS ROW -->
+        <div class="grid md:grid-cols-12 gap-8">
+
+            <!-- About Me Card (7 Cols) -->
+            <section id="about" class="md:col-span-7 editorial-card rounded-[2rem] p-8 flex flex-col sm:flex-row items-center gap-7">
+                <div class="flex-shrink-0 bg-white p-3 pb-6 rounded-2xl shadow-md border border-indigo-100 -rotate-2 hover:rotate-0 transition duration-300 text-center w-48">
+                    <div class="w-full h-48 rounded-xl overflow-hidden bg-indigo-100 relative">
+                        <img src="Ann.jpg" alt="Ann Maria Benny" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Ann+Maria+Benny&background=6366f1&color=fff&size=300&font-size=0.33'">
+                    </div>
+                    <p class="hand-font text-indigo-900 text-lg mt-2 leading-none">Ann Maria Benny</p>
+                    <p class="text-[10px] font-bold text-indigo-500 uppercase tracking-wider mt-0.5">3rd Year Int. M.Sc. CS (DS)</p>
+                </div>
+
+                <div class="space-y-3 text-center sm:text-left">
+                    <div class="inline-flex items-center gap-2">
+                        <h2 class="poster-font text-4xl sm:text-5xl text-indigo-950 leading-none">ABOUT ME</h2>
+                        <span class="hand-font text-indigo-700 text-xl">← that's me!</span>
+                    </div>
+                    <p class="text-sm font-bold text-indigo-900 bg-indigo-100/80 inline-block px-3 py-1 rounded-lg">
+                        🎓 Integrated M.Sc. in Computer Science (Data Science) — 3rd Year
+                    </p>
+                    <p class="text-xs font-semibold text-indigo-800">
+                        Nirmala College, Muvattupuzha (Autonomous)
+                    </p>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        I am a passionate 3rd-year Integrated M.Sc. Computer Science (Data Science) student with hands-on research experience at <strong>IISER Thiruvananthapuram</strong> and a strong track record in building AI-powered web systems, NLP tools, and data visualizations.
+                    </p>
+                    <p class="text-xs font-bold text-indigo-900 pt-1">
+                        🎯 Actively looking for internships in: <span class="underline decoration-indigo-400">Data Science, Data Analysis, Machine Learning & Artificial Intelligence</span>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills & Software Card (5 Cols) -->
+            <section id="skills" class="md:col-span-5 editorial-card rounded-[2rem] p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h2 class="poster-font text-4xl sm:text-5xl text-indigo-950 leading-none">SKILLS & TOOLS</h2>
+                        <span class="hand-font text-indigo-700 text-lg">what I use ⤵</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-4 font-medium">
+                        Core programming languages, data science frameworks, and analytical tools:
+                    </p>
+
+                    <!-- Programming Languages -->
+                    <p class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-900 mb-1.5">Programming</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100"><i class="fa-brands fa-python text-indigo-600 mr-1"></i>Python</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100"><i class="fa-solid fa-database text-indigo-600 mr-1"></i>SQL</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100"><i class="fa-solid fa-chart-pie text-indigo-600 mr-1"></i>R</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100"><i class="fa-brands fa-java text-indigo-600 mr-1"></i>Java</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100"><i class="fa-brands fa-php text-indigo-600 mr-1"></i>PHP</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100">C</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100">C++</span>
+                    </div>
+
+                    <!-- Data Analysis & Visualization -->
+                    <p class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-900 mb-1.5">Data Analysis & Visualization</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="px-2.5 py-1 bg-indigo-900 text-white rounded-lg text-xs font-semibold">Pandas & NumPy</span>
+                        <span class="px-2.5 py-1 bg-indigo-900 text-white rounded-lg text-xs font-semibold">EDA & Cleaning</span>
+                        <span class="px-2.5 py-1 bg-indigo-900 text-white rounded-lg text-xs font-semibold">Matplotlib</span>
+                        <span class="px-2.5 py-1 bg-indigo-900 text-white rounded-lg text-xs font-semibold">Power BI</span>
+                    </div>
+
+                    <!-- Machine Learning & Stats -->
+                    <p class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-900 mb-1.5">Machine Learning & Statistics</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100">Scikit-Learn</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100">Regression & Classification</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100">Clustering</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100">Model Evaluation</span>
+                        <span class="px-2.5 py-1 bg-white/90 text-indigo-950 rounded-lg text-xs font-bold shadow-sm border border-indigo-100">Statistics</span>
+                    </div>
+
+                    <!-- Databases & Dev Tools -->
+                    <p class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-900 mb-1.5">Databases & Developer Tools</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-indigo-900 text-white rounded-lg text-xs font-semibold">MySQL</span>
+                        <span class="px-2.5 py-1 bg-indigo-900 text-white rounded-lg text-xs font-semibold">Jupyter / Colab</span>
+                        <span class="px-2.5 py-1 bg-indigo-900 text-white rounded-lg text-xs font-semibold">VS Code</span>
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 3. FEATURED RESEARCH INTERNSHIP CARD -->
+        <section id="internship">
+            <div class="flex items-center justify-between mb-3 px-2">
+                <h2 class="poster-font text-4xl sm:text-5xl text-white drop-shadow">Internships</h2>
+                <span class="hand-font text-white text-xl">👆 Click card to view full certificate details!</span>
+            </div>
+
+            <div onclick="openModal('iiser')" class="editorial-card interactive-card rounded-[2rem] p-8 md:p-10 border-2 border-white">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-2 max-w-3xl">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-3 py-1 bg-indigo-900 text-white text-xs font-bold rounded-full">
+                                8th May 2026 – 9th July 2026
+                            </span>
+                            <span class="px-3 py-1 bg-white/80 text-indigo-900 text-xs font-bold rounded-full border border-indigo-200">
+                                School of Data Science, IISER Thiruvananthapuram
+                            </span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-indigo-950 pt-1">
+                            Short Term Research Internship — Applied Cryptography
+                        </h3>
+                        <p class="text-sm font-semibold text-indigo-800">
+                            Supervisor: Dr. Laltu Sardar (Assistant Professor, School of Data Science, IISER TVM)
+                        </p>
+                        <p class="text-sm text-slate-700 leading-relaxed pt-1">
+                            Actively participated in the <strong>"design and development of a secure end-to-end message encryption app and system, intended for Security Forces"</strong>—studying modern cryptographic primitives and secure communication protocols.
+                        </p>
+                    </div>
+
+                    <div class="flex-shrink-0 flex flex-col items-center">
+                        <span class="px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-lg flex items-center gap-2">
+                            <i class="fa-solid fa-expand"></i> Click for Full Details
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. INTERACTIVE PROJECTS SECTION -->
+        <section id="projects">
+            <div class="flex items-center justify-between mb-4 px-2">
+                <h2 class="poster-font text-4xl sm:text-5xl text-white drop-shadow">PROJECTS</h2>
+                <span class="hand-font text-white text-xl">👆 Click any project card to read how it works!</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Project 1: AuraShield -->
+                <div onclick="openModal('aurashield')" class="editorial-card interactive-card rounded-[2rem] p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="px-3 py-1 bg-amber-400/30 border border-amber-600/30 text-indigo-950 text-xs font-extrabold rounded-full">
+                                🏆 4th Position — TinkHer Hack 4.0 (Solo Project)
+                            </span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-indigo-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-indigo-950 mb-2">
+                            AuraShield: AI-Driven Transit Safety App
+                        </h3>
+                        <p class="text-sm text-slate-700 leading-relaxed mb-5">
+                            An automatic digital guardian that proactively protects users during cab journeys using a <strong>Decision Tree Classifier</strong> for real-time route deviation & anomaly detection, complete with "Dead Zone" and "Dead Battery" emergency protocols.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Python</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Flask</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Scikit-Learn (Decision Tree)</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Leaflet.js</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Twilio SMS</span>
+                        </div>
+                        <div class="text-xs font-extrabold text-indigo-700 flex items-center gap-1">
+                            <span>Click to view architecture & protocols</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Smart Resume Screening System -->
+                <div onclick="openModal('resumescreener')" class="editorial-card interactive-card rounded-[2rem] p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 text-indigo-950 text-xs font-extrabold rounded-full">
+                                🤖 5-Day AI Camp by TECHYSPOT
+                            </span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-indigo-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-indigo-950 mb-2">
+                            Smart Resume Screening System
+                        </h3>
+                        <p class="text-sm text-slate-700 leading-relaxed mb-5">
+                            An automated HR screening web application that parses resumes, removes noise using Regex, and mathematically computes a candidate's <strong>"Match Percentage"</strong> against a Job Description using TF-IDF Vectorization and Cosine Similarity.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Python</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Flask</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Scikit-Learn (TF-IDF)</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Cosine Similarity</span>
+                            <span class="px-2.5 py-1 bg-white/80 text-indigo-900 rounded-md text-xs font-bold">Pandas & Pickle</span>
+                        </div>
+                        <div class="text-xs font-extrabold text-indigo-700 flex items-center gap-1">
+                            <span>Click to view problem, solution & tech stack</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. PUBLICATIONS & CERTIFICATIONS -->
+        <section id="certifications">
+            <div class="flex items-center justify-between mb-4 px-2">
+                <h2 class="poster-font text-4xl sm:text-5xl text-white drop-shadow">RESEARCH PAPER & CERTIFICATIONS</h2>
+                <span class="hand-font text-white text-xl">👆 Click any card to inspect credentials!</span>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Card 1 -->
+                <div onclick="openModal('gyan')" class="editorial-card interactive-card rounded-[1.8rem] p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 bg-indigo-900 text-white rounded-md">
+                            Paper Presentation • Feb 25–26, 2026
+                        </span>
+                        <h4 class="text-lg font-extrabold text-indigo-950 mt-3 mb-2 leading-snug">
+                            The Rise of AI in Autism Care: A Review of AI-Powered Rehabilitation Tools
+                        </h4>
+                        <p class="text-xs text-slate-700">
+                            Presented at <strong>GYAN SAMAVESH 2026</strong> (2nd International Multidisciplinary Research Conclave) organized by Nirmala College & MG University.
+                        </p>
+                    </div>
+                    <p class="text-xs font-bold text-indigo-700 mt-4 flex items-center gap-1">
+                        View Paper & Certificate Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div onclick="openModal('nptel')" class="editorial-card interactive-card rounded-[1.8rem] p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 bg-indigo-900 text-white rounded-md">
+                            IIT Madras • NPTEL (Jul–Sep 2025)
+                        </span>
+                        <h4 class="text-lg font-extrabold text-indigo-950 mt-3 mb-2 leading-snug">
+                            Data Science for Engineers
+                        </h4>
+                        <p class="text-xs text-slate-700">
+                            Successfully completed the 8-week MoE/SWAYAM funded certification course by Indian Institute of Technology Madras.
+                        </p>
+                    </div>
+                    <p class="text-xs font-bold text-indigo-700 mt-4 flex items-center gap-1">
+                        View Score & Certificate Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div onclick="openModal('powerbi')" class="editorial-card interactive-card rounded-[1.8rem] p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 bg-indigo-900 text-white rounded-md">
+                            Grade A+ • Jan 20, 2025
+                        </span>
+                        <h4 class="text-lg font-extrabold text-indigo-950 mt-3 mb-2 leading-snug">
+                            Certification in Data Visualization using Power BI
+                        </h4>
+                        <p class="text-xs text-slate-700">
+                            Completed with <strong>Grade A+</strong> from KGiSL Microcollege in collaboration with Skill India & NSDC.
+                        </p>
+                    </div>
+                    <p class="text-xs font-bold text-indigo-700 mt-4 flex items-center gap-1">
+                        View Skills & Certificate Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. CONTACT FOOTER -->
+        <footer id="contact" class="editorial-card rounded-[2.2rem] p-10 md:p-14 text-center relative overflow-hidden">
+            <div class="-bottom-6 -left-6 w-36 h-36 halftone-corner rounded-full absolute"></div>
+            <div class="-top-6 -right-6 w-36 h-36 halftone-corner rounded-full absolute"></div>
+
+            <span class="hand-font text-2xl text-indigo-800">Let's work together!</span>
+            <h2 class="poster-font text-7xl md:text-8xl text-indigo-950 leading-none mt-1">
+                THANK YOU
+            </h2>
+            <p class="text-sm font-medium text-slate-700 max-w-md mx-auto mt-2 mb-6">
+                Available for internships and collaborative projects in Data Science, Data Analytics, Machine Learning, and AI.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 z-10 relative">
+                <a href="mailto:annmariabenny13@gmail.com" class="px-6 py-3 bg-indigo-950 hover:bg-indigo-800 text-white rounded-full text-xs md:text-sm font-bold flex items-center gap-2 shadow-md transition">
+                    <i class="fa-solid fa-envelope"></i> annmariabenny13@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/ann-maria-benny" target="_blank" class="px-6 py-3 bg-white hover:bg-indigo-50 text-indigo-950 border border-indigo-200 rounded-full text-xs md:text-sm font-bold flex items-center gap-2 shadow-sm transition">
+                    <i class="fa-brands fa-linkedin text-indigo-600 text-base"></i> linkedin.com/in/ann-maria-benny
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- INTERACTIVE DETAIL MODAL -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-indigo-950/60 backdrop-blur-sm p-4" onclick="closeModal(event)">
+        <div class="bg-white/95 border-2 border-white rounded-[2rem] max-w-2xl w-full p-6 md:p-10 shadow-2xl relative modal-enter max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            
+            <button onclick="closeModal()" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-950 flex items-center justify-center font-bold transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const modalData = {
+            iiser: {
+                badge: "Short Term Research Internship • 8th May – 9th July 2026",
+                title: "Indian Institute of Science Education and Research (IISER) Thiruvananthapuram",
+                subtitle: "Supervised by Dr. Laltu Sardar (Assistant Professor, The School of Data Science)",
+                description: `
+                    <p class="mb-3 text-slate-700 text-sm leading-relaxed">
+                        Successfully completed a Short Term Research Internship at the <strong>School of Data Science, IISER Thiruvananthapuram</strong> (An Autonomous Institution under MoE, Govt. of India).
+                    </p>
+                    <h4 class="font-bold text-indigo-950 text-sm mb-2">Key Research & Development Contributions:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-slate-700 mb-4">
+                        <li>Worked on research activities in the field of <strong>Applied Cryptography</strong>, studying modern cryptographic primitives, understanding secure communication protocols, and implementing selected cryptographic techniques.</li>
+                        <li>Actively participated in the <strong>"design and development of a secure end to end message encryption app and system, intended for Security Forces"</strong>.</li>
+                        <li>Explored cryptographic design choices, assisted in the implementation of secure communication mechanisms, and evaluated the security aspects of the proposed system.</li>
+                    </ul>
+                    <div class="p-3 bg-indigo-50 rounded-xl border border-indigo-100 text-xs text-indigo-900 font-semibold">
+                        📍 Certificate Issued: 10/07/2026 • QuRAC Group, School of Data Science, IISER TVM
+                    </div>
+                `,
+                certImage: "IISER.PNG"
+            },
+            aurashield: {
+                badge: "🏆 4th Position Winner • TinkHer Hack 4.0 by TinkerHub",
+                title: "AuraShield — AI-Driven Transit Safety Application",
+                subtitle: "Solo Project • Proactive Digital Guardian for Cab Journeys",
+                description: `
+                    <p class="mb-3 text-slate-700 text-sm leading-relaxed">
+                        Most safety apps are reactive and wait for a user to press a panic button. <strong>AuraShield</strong> acts as an automatic digital guardian that proactively protects passengers during cab rides.
+                    </p>
+                    <h4 class="font-bold text-indigo-950 text-sm mb-2">How It Works:</h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li><strong>Trip Setup:</strong> User enters cab details before the ride begins.</li>
+                        <li><strong>Live Monitoring:</strong> AI constantly tracks live GPS coordinates against the expected route.</li>
+                        <li><strong>Smart Alerts:</strong> If the cab deviates drastically or stops in an isolated area, a 30-second <em>"Are you safe?"</em> prompt appears.</li>
+                        <li><strong>Auto-Escalation:</strong> If the user is in danger and cannot respond, the app automatically escalates based on network and battery status.</li>
+                    </ul>
+                    <h4 class="font-bold text-indigo-950 text-sm mb-2">Tech Stack & Emergency Protocols:</h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-sm text-slate-700">
+                        <li><strong>Backend & AI:</strong> Python, Flask, and Scikit-Learn (<strong>Decision Tree Classifier</strong> for real-time anomaly detection based on route deviation and stop times).</li>
+                        <li><strong>Frontend:</strong> HTML/CSS/JS with <strong>Leaflet.js</strong> for live OpenStreetMap tracking.</li>
+                        <li><strong>"Dead Zone" Protocol:</strong> A psychological deterrent that triggers a loud, fake incoming video call when the device loses internet connection.</li>
+                        <li><strong>"Dead Battery" Protocol:</strong> Integrates the Web Battery API and <strong>Twilio SMS</strong> to blast a final known location link to emergency contacts right before the phone powers off.</li>
+                    </ul>
+                `
+            },
+            resumescreener: {
+                badge: "Team Project • 5-Day AI Camp by TECHYSPOT",
+                title: "Smart Resume Screening System",
+                subtitle: "Developed at Nirmala College, Muvattupuzha",
+                description: `
+                    <h4 class="font-bold text-indigo-950 text-sm mb-1">The Problem:</h4>
+                    <p class="mb-3 text-slate-700 text-sm leading-relaxed">
+                        HR departments face a massive volume of resumes, making manual screening time-consuming and prone to unconscious bias.
+                    </p>
+                    <h4 class="font-bold text-indigo-950 text-sm mb-1">Our Solution:</h4>
+                    <p class="mb-3 text-slate-700 text-sm leading-relaxed">
+                        Developed an automated web solution that parses candidate resumes, removes noise using <strong>Regex</strong>, and calculates a precise <strong>"Match Percentage"</strong> against the Job Description using <strong>Cosine Similarity</strong> to mathematically measure how closely a candidate's skills align with job requirements.
+                    </p>
+                    <h4 class="font-bold text-indigo-950 text-sm mb-2">Tools & Technologies:</h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-sm text-slate-700">
+                        <li><strong>Python:</strong> Core programming logic and text processing with Regex.</li>
+                        <li><strong>Flask:</strong> Web interface and routing.</li>
+                        <li><strong>Scikit-Learn:</strong> TF-IDF Vectorization & Cosine Similarity algorithms.</li>
+                        <li><strong>Pandas & Pickle:</strong> Data manipulation and serialized model handling.</li>
+                    </ul>
+                `
+            },
+            gyan: {
+                badge: "International Conference Presentation • Feb 25–26, 2026",
+                title: "The Rise of AI in Autism Care: A Review of AI-Powered Rehabilitation Tools for Children with Special Needs",
+                subtitle: "GYAN SAMAVESH 2026 — 2nd International Multidisciplinary Research Conclave",
+                description: `
+                    <p class="mb-3 text-slate-700 text-sm leading-relaxed">
+                        Participated and presented a research review paper at <strong>GYAN SAMAVESH 2026</strong> (Theme: <em>Sustainable Future through Indian Knowledge Systems and Modern Innovation</em>).
+                    </p>
+                    <ul class="list-disc list-inside space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li><strong>Organizers:</strong> Research Development Cell & Internal Quality Assurance Cell (IQAC) of Nirmala College Muvattupuzha (Autonomous) in association with the College Development Council, Mahatma Gandhi University, Kottayam, Kerala.</li>
+                        <li><strong>Focus:</strong> Comprehensive review of artificial intelligence rehabilitation tools designed to assist children with Autism Spectrum Disorder (ASD) and special needs.</li>
+                    </ul>
+                `,
+                certImage: "gyan_cert.png"
+            },
+            nptel: {
+                badge: "NPTEL Online Certification • Jul–Sep 2025 (8-Week Course)",
+                title: "Data Science for Engineers",
+                subtitle: "Indian Institute of Technology (IIT) Madras • Funded by MoE, Govt. of India",
+                description: `
+                    <p class="mb-3 text-slate-700 text-sm leading-relaxed">
+                        Successfully completed the proctored NPTEL certification course in <strong>Data Science for Engineers</strong> offered by IIT Madras via SWAYAM.
+                    </p>
+                    <ul class="list-disc list-inside space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li><strong>Consolidated Score:</strong> 54% (Online Assignments: 21.04/25 | Proctored Exam: 33.16/75).</li>
+                        <li><strong>Core Topics:</strong> R programming, linear algebra for data science, statistical foundations, optimization, regression, and classification models.</li>
+                    </ul>
+                `,
+                certImage: "nptel_cert.png"
+            },
+            powerbi: {
+                badge: "KGiSL Microcollege • Skill India & NSDC • Jan 20, 2025",
+                title: "Certification in Data Visualization using Power BI",
+                subtitle: "Achieved Final Grade: A+ (Student ID: CAN_35615366)",
+                description: `
+                    <p class="mb-3 text-slate-700 text-sm leading-relaxed">
+                        Successfully completed a comprehensive certification in <strong>Data Visualization using Power BI</strong> offered by KGiSL Microcollege in collaboration with Skill India and NSDC.
+                    </p>
+                    <ul class="list-disc list-inside space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li>Gained hands-on experience in creating <strong>interactive dashboards, data modeling, and DAX expressions</strong>.</li>
+                        <li>Generated insightful visual analytics using Microsoft Power BI, transforming raw data into actionable business intelligence with effective storytelling techniques.</li>
+                        <li><strong>Grade Achieved:</strong> A+</li>
+                    </ul>
+                `,
+                certImage: "power.png"
+            }
+        };
+
+        function openModal(key) {
+            const item = modalData[key];
+            if (!item) return;
+
+            let certButton = '';
+            if (item.certImage) {
+                certButton = `
+                    <div class="mt-6 pt-4 border-t border-indigo-100 flex justify-end">
+                        <a href="${item.certImage}" target="_blank" class="px-4 py-2 bg-indigo-900 hover:bg-indigo-800 text-white text-xs font-bold rounded-full inline-flex items-center gap-2 transition">
+                            <i class="fa-solid fa-certificate"></i> Open Certificate Image
+                        </a>
+                    </div>
+                `;
+            }
+
+            document.getElementById('modalBody').innerHTML = `
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-900 text-xs font-extrabold rounded-full inline-block mb-3">
+                    ${item.badge}
+                </span>
+                <h3 class="text-2xl font-extrabold text-indigo-950 mb-1">${item.title}</h3>
+                <p class="text-xs font-bold text-indigo-600 mb-5">${item.subtitle}</p>
+                <div>${item.description}</div>
+                ${certButton}
+            `;
+
+            const modal = document.getElementById('detailModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
